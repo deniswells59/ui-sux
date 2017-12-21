@@ -4,7 +4,7 @@ class CTA extends Component {
   render() {
     return (
       <div
-        className={ `abs-center cta ${this.props.instrAnim}` }>
+        className={ `abs-center cta ${this.props.subtitleAnim}` }>
 
         <p
           className='instructions show'>
@@ -13,7 +13,9 @@ class CTA extends Component {
         </p>
 
         <a href='#'>
-          <button className='btn play-btn'>
+          <button
+            onClick={ () => this.props.changeLevel('1') }
+            className='btn play-btn'>
             PLAY
           </button>
         </a>

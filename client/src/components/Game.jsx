@@ -6,7 +6,7 @@ class Game extends Component {
   render() {
     return (
       <div className='game'>
-        <Toolbar {...this.props} />
+        { this.props.session.data.level > 0 && <Toolbar {...this.props} /> }
         <Board {...this.props}   />
       </div>
     );

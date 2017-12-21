@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // Most actions should happen right here
 // Let all the data fall to Child through props
-import { fetchSession } from '../actions/sessionActions';
+import { fetchSession, updateLevelNum } from '../actions/sessionActions';
 import Root from '../components/Root';
 
 // Don't render much in containers
@@ -20,5 +20,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  fetchSession
+  fetchSession,
+  updateLevelNum
 })(RootContainer);

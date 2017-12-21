@@ -9,8 +9,19 @@ import Game from './Game.jsx';
 // Style
 
 class Root extends Component {
+  constructor(props) {
+    super(props);
+
+    this.renderGame = this.renderGame.bind(this);
+    this.changeLevel = this.changeLevel.bind(this);
+  }
+
   componentWillMount() {
     this.props.fetchSession();
+  }
+
+  changeLevel(levelNum) {
+    this.props.updateLevelNum(levelNum);
   }
 
   renderGame() {
@@ -20,7 +31,9 @@ class Root extends Component {
         {
           loading  ?
           'Loading...' :
-          <Game {...this.props} />
+          <Game
+            changeLevel={ this.changeLevel }
+            {...this.props} />
         }
       </div>
     );

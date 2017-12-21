@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Transition from '../../Transitions/Transition';
 import Title from './Title';
 import CTA from './CTA';
 
@@ -22,7 +23,7 @@ class Level_0 extends Component {
   }
 
   componentDidMount() {
-    this.animateTitle();
+    this.animateTitleScreen();
   }
 
   animate(stateProp) {
@@ -32,7 +33,7 @@ class Level_0 extends Component {
     this.setState( newState );
   }
 
-  animateTitle() {
+  animateTitleScreen() {
     setTimeout(() => this.animate('titleAnimation1'), 500);  // Appear 'UI'
     setTimeout(() => this.animate('titleAnimation2'), 1100); // Appear '/ UX'
 
@@ -60,11 +61,18 @@ class Level_0 extends Component {
 
         <Title { ...this.state } />
 
-        <CTA   { ...this.state } />
+        <CTA   { ...this.state } { ...this.props } />
 
       </div>
     );
   };
 }
 
-export default Level_0;
+let transitionOpts = {
+  style: 'top',
+  start: '0px',
+  end  : `-${window.innerHeight}px`,
+  duration: 1400
+}
+
+export default Transition(Level_0, transitionOpts);
