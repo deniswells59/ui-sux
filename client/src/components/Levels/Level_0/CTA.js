@@ -7,7 +7,7 @@ class CTA extends Component {
         className={ `abs-center cta ${this.props.subtitleAnim}` }>
 
         <p
-          className='instructions show'>
+          className='intro show'>
           UI / UX stands for <span className='highlight'>User Interface / User Experience</span>. What you're about to face is
           <span className='highlight'> five</span> levels of UI that sucks. Prepare to experience the worst.
         </p>

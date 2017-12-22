@@ -49,6 +49,7 @@ body {
 }
 
 .toolbar {
+  z-index: 10;
   height: 15px;
   position: absolute;
   width: 100%;
@@ -98,17 +99,13 @@ body {
 .level-container {
   opacity: 0;
   transform: translateY(80px);
-  max-width: 400px;
-  min-height: 300px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 500px;
+  min-height: 400px;
   position: absolute;
   left: 0;
   right: 0;
   top: 20vh;
   background-color: #fcfcfc;
-  padding: 2em;
-  border-top: 20px solid black;
   border-radius: 4px;
   box-shadow: 1px 1px 17px -1px rgba(0, 0, 0, 0.37);
   -webkit-transition: all 0.6s ease-out;
@@ -120,6 +117,14 @@ body {
 .level-container.show {
   opacity: 1;
   transform: translateY(0px);
+}
+
+.window-bar {
+  height: 20px;
+  width: 100%;
+  background: #232323;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 
 h1 {
@@ -138,6 +143,35 @@ h1 {
 
 .animated-page-wrapper {
   position: absolute;
+}
+
+.instructions {
+  background-color: rgba(0, 0, 0, 0.8);
+  font-family: $textFont;
+  color: #fff;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  border-radius: 4px;
+  z-index: 10;
+  top: 0;
+  -webkit-transition: all 0.6s ease-out;
+  -moz-transition:    all 0.6s ease-out;
+  -o-transition:      all 0.6s ease-out;
+  transition:         all 0.6s ease-out;
+}
+
+.instructions.show {
+  opacity: 1;
+}
+
+.instructions.hide {
+  opacity: 0;
+}
+
+.instructions div {
+  padding: 4em;
+  text-align: center;
 }
 
 .level_0 {
@@ -214,7 +248,7 @@ h1 {
   opacity: 1;
 }
 
-p.instructions.show {
+p.intro.show {
   letter-spacing: 1px;
   font-size: .8em;
 }
@@ -224,8 +258,17 @@ button.btn.play-btn {
   font-size: 1em;
 }
 
-.level_1 {
+.level-1 {
   width: 100vw;
   height: 100vh;
   background: $lightGreen;
+}
+
+.level-1-container {
+  padding: 3em;
+  text-align: center;
+}
+
+span.italic {
+  font-style: italic;
 }
