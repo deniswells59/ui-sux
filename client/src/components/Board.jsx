@@ -10,7 +10,6 @@ class Board extends Component {
   renderLevel() {
     let { level } = this.props.session.data;
 
-
     return (
       <div>
         <TransitionWrapper>

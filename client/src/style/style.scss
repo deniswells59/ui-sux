@@ -272,3 +272,41 @@ button.btn.play-btn {
 span.italic {
   font-style: italic;
 }
+
+div.base {
+  height: 100px;
+  width: 100px;
+  background: black;
+  border-radius: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+
+div.lever {
+  position: absolute;
+  left: -100px;
+  top: 35px;
+  width: 150px;
+  height: 30px;
+  background: grey;
+  border-bottom-left-radius: 100%;
+  border-top-left-radius: 100%;
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+  transform-origin: center right;
+}
+
+div.lever:hover {
+  cursor: pointer;
+}
+
+div.crank p {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
