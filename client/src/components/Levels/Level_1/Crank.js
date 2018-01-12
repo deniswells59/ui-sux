@@ -6,9 +6,9 @@ class Crank extends Component {
     super(props);
 
     this.state = {
-      angle: 0,                  // Tracks current angle
-      rotation: 'rotate(0deg)',  // CSS Rotation
-      rotating: false,           // Rotating Bool
+      angle: 20,         // Tracks current angle
+      rotation: 20,      // CSS Rotation
+      rotating: false,   // Rotating Bool
 			pastRotations: [],
 			volume: 35,
       settingVol: false,
@@ -50,9 +50,8 @@ class Crank extends Component {
 
   // On Click Down
   initRotate(e) {
-    console.log('down');
-    let x = e.clientX - this.state.origin.x;
-    let y = e.clientY - this.state.origin.y;
+    let x = (e.clientX || e.touches[0].clientX) - this.state.origin.x;
+    let y = (e.clientY || e.touches[0].clientY) - this.state.origin.y;
 
     this.setState({
       startAngle: this.radiusToDegrees * Math.atan2(y, x), // Tracks current angle
@@ -64,7 +63,6 @@ class Crank extends Component {
 
   // On Mouse Move
   rotate() {
-    console.log('rotating');
     if(!this.state.rotating) return;
     let e = event || window.event; // IE-ism
     let rotation = this.getRotationAngle(e);
@@ -75,7 +73,6 @@ class Crank extends Component {
 
   // On Mouse Up
   endRotate(e) {
-    console.log('done');
     let rotation = this.getRotationAngle(e);
 
     this.setState({
@@ -88,8 +85,8 @@ class Crank extends Component {
   }
 
   getRotationAngle(e) {
-    let x = e.clientX - this.state.origin.x; // Get x location
-    let y = e.clientY - this.state.origin.y; // Get y location
+    let x = (e.clientX || e.touches[0].clientX) - this.state.origin.x; // Get x location
+    let y = (e.clientY || e.touches[0].clientY) - this.state.origin.y; // Get y location
 
   /* Gotta be honest, I'm not 100% why this works
      Wish I had paid more attention to Geometry in high school.
@@ -102,40 +99,46 @@ class Crank extends Component {
 
   addRotateEvents() {
     document.addEventListener('mousemove', this.rotate);  // Watch the rotate onClick
+    document.addEventListener('mouseenter', this.rotate);  // Watch the rotate onClick
     document.addEventListener('mouseup', this.endRotate); // Wait until they let go
+    document.addEventListener('touchmove', this.rotate);
+    document.addEventListener('touchend', this.endRotate);
   }
 
   endRotateEvents() {
     document.removeEventListener('mousemove', this.rotate);
+    document.removeEventListener('mouseenter', this.rotate);
     document.removeEventListener('mouseup', this.endRotate);
+    document.removeEventListener('touchmove', this.rotate);
+    document.removeEventListener('touchend', this.endRotate);
   }
 
 	trackRotations(rotation) {
 		let pastRotations = this.state.pastRotations;
 
     // Remove one if more than 60
-		if(pastRotations.length >= 60) {
+		if(pastRotations.length >= 40) {
 			pastRotations.shift();
 		}
 
     let smallIndex, largeIndex;
     for(let i = 0; i < pastRotations.length; i++) {
-      let r = pastRotations[i];
+      let r = Math.abs(pastRotations[i]);
 
       if(r > 0 && r < 20) {    // Record most recent that's over 0
         smallIndex = i;
       }
-      if(r < 360 && r > 330) { // Record most recent that's under 360
+      if(r < 360 && r > 345) { // Record most recent that's under 360
         largeIndex = i;
       }
     }
-
+    // console.log(smallIndex);
+    // console.log(largeIndex);
     // REVIEW:
     // This isn't perfect!
     // Sometimes largeIndex is always undefined
     // Sometimes volume goes up twice if you move slow
-    
-    // console.log(largeIndex, smallIndex);
+
     if(largeIndex && smallIndex) {         // If we're in the sweet spot
       if(smallIndex < largeIndex) {        // Going counterclockwise
         this.setVolume(this.state.volume - 1);
@@ -151,7 +154,9 @@ class Crank extends Component {
   setVolume(volume) {
     if(this.state.settingVol) return;
 
-    this.setState({ volume, settingVol: true });
+    this.setState({ volume, settingVol: true }, () => {
+      if(volume >= 38) this.props.levelComplete();
+    });
     setTimeout(() => this.setState({ settingVol: false }), 900);
   }
 
@@ -169,7 +174,7 @@ class Crank extends Component {
             }}></div>
           </div>
           <div className='handle'></div>
-					<p>volume: { this.state.volume }</p>
+					<p>Volume: { this.state.volume }</p>
       </div>
     );
   };

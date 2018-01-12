@@ -1,0 +1,58 @@
+@media (orientation: landscape) and (max-width: 500px) {
+  .level-1 {
+    height: 500px;
+  }
+}
+
+.level-1-container {
+  padding: 3em;
+  text-align: center;
+}
+
+span.italic {
+  font-style: italic;
+}
+
+div.crank {
+  margin-top: 50px;
+}
+
+div.base {
+  height: 100px;
+  width: 100px;
+  background: black;
+  border-radius: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+
+div.lever {
+  position: absolute;
+  left: -70px;
+  top: 35px;
+  width: 120px;
+  height: 30px;
+  background: grey;
+  border-bottom-left-radius: 100%;
+  border-top-left-radius: 100%;
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+  transform-origin: center right;
+  box-shadow: -3px 0px 0px 2px black;
+}
+
+div.lever:hover {
+  cursor: pointer;
+}
+
+div.crank p {
+  font-size: 1.5em;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}

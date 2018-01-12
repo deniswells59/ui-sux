@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
-import Crank from './Crank';
 import WindowBox from '../../WindowBox';
 
-class Level_1 extends Component {
+class Level_2 extends Component {
   constructor(props) {
     super(props);
 
@@ -11,7 +10,7 @@ class Level_1 extends Component {
       containerAnim: '',
       playing: false,
       complete: false,
-      instructions: 'Okay, the classic. Turn up the volume to 50.\n You gotta use the crank though. 🙂',
+      instructions: 'Level 2.',
       win: '👍 '
     }
 
@@ -22,7 +21,7 @@ class Level_1 extends Component {
   }
 
   componentDidMount() {
-    setTimeout(() => this.animate('containerAnim'), 1600);
+    setTimeout(() => this.animate('containerAnim'), 200);
   }
 
   animate(stateProp) {
@@ -47,23 +46,21 @@ class Level_1 extends Component {
   render() {
     return (
       <div className='level-background'>
-        <WindowBox
-          hideWindowBox={ this.hideWindowBox }
-          playLevel={ this.playLevel }
-          updateLevelNum={ this.props.updateLevelNum }
-          {...this.state}>
+          <WindowBox
+            hideWindowBox={ this.hideWindowBox }
+            playLevel={ this.playLevel }
+            updateLevelNum={ this.props.updateLevelNum }
+            {...this.state}>
 
-          <div className='level-1-container'>
+            <div className='level-2-container'>
 
-            <Crank
-              levelComplete={ this.levelComplete } />
 
-          </div>
+            </div>
 
-        </WindowBox>
+          </WindowBox>
       </div>
     );
   };
 }
 
-export default Level_1;
+export default Level_2;

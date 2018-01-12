@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as Animated from 'react-dom-animated';
 
-const Slide = (WrappedComponent, opts) => class Slide
+const Transition = (WrappedComponent, opts) => class Transition
  extends Component {
   constructor(props) {
     super(props);
@@ -51,4 +51,4 @@ const Slide = (WrappedComponent, opts) => class Slide
   }
 };
 
-export default Slide;
+export default Transition;

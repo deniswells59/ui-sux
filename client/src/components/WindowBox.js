@@ -11,10 +11,12 @@ class WindowBox extends Component {
         defaultPosition={{ x: window.innerWidth / 2 - 250, y: window.innerHeight / 2 - 300 }}
         bounds='.level-1'
         handle='.window-bar'>
-        <div className={`level-container ${this.props.containerAnim}`}>
+        <div
+          className={`level-container ${this.props.containerAnim}`}>
           <div className='window-bar'></div>
 
-        <Instructions { ...this.props } />
+          <Instructions
+            { ...this.props } />
 
           { this.props.children }
 
@@ -23,4 +25,5 @@ class WindowBox extends Component {
     );
   };
 }
+
 export default WindowBox;

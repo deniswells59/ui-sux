@@ -22,7 +22,6 @@ export function fetchSession(data) {
 
 export function updateLevelNum(level) {
   return dispatch => {
-
     // API Call
     setTimeout(() => {
       dispatch(receiveSession({ id: '123', level })); // Got em
