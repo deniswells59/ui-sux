@@ -8,38 +8,24 @@ class Level_1 extends Component {
     super(props);
 
     this.state = {
-      containerAnim: '',
       playing: false,
       complete: false,
-      instructions: 'Okay, the classic. Turn up the volume to 50.\n You gotta use the crank though. 🙂',
-      win: '👍 '
     }
 
-    this.animationClass = 'show';
+    this.win          = '👍 ';
+    this.instructions = `Okay, the classic. Turn up the volume to 50.
+                         You gotta use the crank though. 🙂`;
+
     this.playLevel = this.playLevel.bind(this);
     this.levelComplete = this.levelComplete.bind(this);
-    this.hideWindowBox = this.hideWindowBox.bind(this);
   }
 
-  componentDidMount() {
-    setTimeout(() => this.animate('containerAnim'), 1600);
-  }
-
-  animate(stateProp) {
-    let newState = {};
-    newState[stateProp] = this.animationClass;
-
-    this.setState( newState );
-  }
-
-  hideWindowBox() {
-    this.setState({ containerAnim: 'hide '});
-  }
-
+  // Level Start
   playLevel() {
     this.setState({ playing: true });
   }
 
+  // Level End
   levelComplete() {
     this.setState({ complete: true });
   }
@@ -48,8 +34,11 @@ class Level_1 extends Component {
     return (
       <div className='level-background'>
         <WindowBox
-          hideWindowBox={ this.hideWindowBox }
+          level={ this.props.session.data.level }
+          instructions={ this.instructions }
+          win={ this.win }
           playLevel={ this.playLevel }
+          levelComplete={ this.levelComplete }
           updateLevelNum={ this.props.updateLevelNum }
           {...this.state}>
 

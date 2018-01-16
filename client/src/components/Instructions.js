@@ -11,11 +11,15 @@ class Instructions extends Component {
   }
 
   componentWillReceiveProps(newProps) {
+    // If playing level
+    // Hide intstructions
     if(newProps.playing && !newProps.complete) {
       this.setState({ show: false });
       setTimeout(() => this.setState({ display: 'none' }), 700);
     }
 
+    // If complete with level
+    // Show win screen
     if(newProps.complete) {
       this.setState({ display: 'block' });
       setTimeout(() => this.setState({ show: true }), 200);
@@ -24,7 +28,7 @@ class Instructions extends Component {
 
   nextLevel(num) {
     this.props.hideWindowBox();
-    this.props.updateLevelNum(num);
+    this.props.updateLevelNum(parseInt(this.props.level) + 1);
   }
 
   render() {
@@ -34,23 +38,26 @@ class Instructions extends Component {
         className={ `instructions ${this.state.show ? 'show' : 'hide' }`}>
         <div>
 
-          { this.state.display === 'block' && !this.props.complete &&
-              <p>{ this.props.instructions }</p> }
-
-          { this.props.complete &&
-              <p>{ this.props.win }</p> }
-
+          {/* If not playing */}
           { !this.props.playing &&
-            <button
-              onClick={ this.props.playLevel }
-              onTouchStart={ this.props.playLevel }
-              className='btn'> Ready </button>
+            <div>
+              <p>{ this.props.instructions }</p>
+              <button
+                onClick={ this.props.playLevel }
+                onTouchStart={ this.props.playLevel }
+                className='btn'> Ready </button>
+            </div>
           }
+
+          {/* If level complete */}
           { this.props.complete &&
-            <button
-              onClick={ () => this.nextLevel('2') }
-              onTouchStart={ () => this.nextLevel('2') }
-              className='btn'> Next </button>
+            <div>
+              <p>{ this.props.win }</p>
+              <button
+                onClick={ () => this.nextLevel() }
+                onTouchStart={ () => this.nextLevel() }
+                className='btn'> Next </button>
+            </div>
           }
 
         </div>

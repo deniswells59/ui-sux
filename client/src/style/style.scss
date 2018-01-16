@@ -15,6 +15,7 @@ $textFont:  'Open Sans', sans-serif;
 
 @import './level_0.scss';
 @import './level_1.scss';
+@import './level_2.scss';
 
 body {
   margin: 0;
@@ -103,7 +104,7 @@ body {
   opacity: 0;
   transform: translateY(80px);
   max-width: 500px;
-  min-height: 400px;
+  height: 400px;
   position: absolute;
   left: 0;
   right: 0;
@@ -128,6 +129,7 @@ body {
 }
 
 .window-bar {
+  position: fixed;
   height: 20px;
   width: 100%;
   background: #232323;
