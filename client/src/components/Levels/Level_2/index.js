@@ -11,6 +11,8 @@ class Level_2 extends Component {
     this.state = {
       playing: false,
       complete: false,
+      accepting: false,
+      sure: false
     }
 
     this.win          = '👍'
@@ -20,6 +22,10 @@ class Level_2 extends Component {
 
     this.playLevel = this.playLevel.bind(this);
     this.levelComplete = this.levelComplete.bind(this);
+    this.userIs = this.userIs.bind(this);
+    this.userIsNot = this.userIsNot.bind(this);
+    this.scrollToTop = this.scrollToTop.bind(this);
+    this.scrollToBottom = this.scrollToBottom.bind(this);
   }
 
   // Level Start
@@ -30,6 +36,30 @@ class Level_2 extends Component {
   // Level End
   levelComplete() {
     this.setState({ complete: true });
+  }
+
+  userIs(prop) {
+    let newState = {};
+
+    newState[prop] = true;
+
+    this.setState( newState, this.scrollToBottom);
+  }
+
+  userIsNot(prop) {
+    let newState = {};
+
+    newState[prop] = false;
+
+    this.setState( newState );
+  }
+
+  scrollToTop() {
+    this.scrollContainer.scrollTop = 0;
+  }
+
+  scrollToBottom() {
+    this.scrollContainer.scrollTop = this.scrollContainer.scrollHeight;
   }
 
   render() {
@@ -44,11 +74,18 @@ class Level_2 extends Component {
         {...this.state}>
 
         <div
+          ref={ ref => this.scrollContainer = ref }
           style={{ overflow: this.state.playing ? 'scroll' : 'hidden' }}
           className='level-2-container'>
 
           <Terms />
-          <Questions />
+
+          <Questions
+            userIs={ this.userIs }
+            userIsNot={ this.userIsNot }
+            levelComplete={ this.levelComplete }
+            scrollToTop={ this.scrollToTop }
+            { ...this.state } />
 
         </div>
 

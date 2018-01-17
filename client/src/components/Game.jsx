@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Toolbar from './Toolbar.jsx'
 import Board from './Board.jsx'
 
@@ -12,4 +13,5 @@ class Game extends Component {
     );
   };
 }
+
 export default Game;

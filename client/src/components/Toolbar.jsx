@@ -1,3 +1,11 @@
+/*
+  Toolbar.jsx
+
+  The black toolbar in the game.
+  Doesn't show on Level 0.
+
+*/
+
 import React, { Component } from 'react';
 import LevelSelect from './LevelSelect.jsx'
 
@@ -6,7 +14,6 @@ class Toolbar extends Component {
     super(props);
 
     this.state = {
-      toolbarAnim: '',
       toolbarAnim: '',
     }
 
@@ -20,7 +27,10 @@ class Toolbar extends Component {
   }
 
   animateToolbar() {
-    setTimeout(() => this.animate('toolbarAnim'), 1600);
+    // On Level 1, wait a little but longer for
+    // intro animation 
+    setTimeout(() => this.animate('toolbarAnim'),
+      this.props.session.data.level === '1' ? 1600 : 200);
   }
 
   animate(stateProp) {
@@ -38,4 +48,5 @@ class Toolbar extends Component {
     );
   };
 }
+
 export default Toolbar;

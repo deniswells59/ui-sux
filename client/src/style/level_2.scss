@@ -9,3 +9,38 @@ p.MsoListParagraphCxSpLast,
 p.MsoListParagraph {
   padding-left: 1em;
 }
+
+.tos-questions {
+  padding: 1em;
+}
+
+.level-2-container button {
+  color: #fff;
+  // Stolen Color from Bootstrap
+  background-color: #c9302c;
+  border-color: #c12e2a;
+  width: 40%;
+  margin: 1px;
+  font-family: "Open Sans";
+  font-size: 1em;
+  letter-spacing: 1px;
+  padding: .3em 0;
+  border: none;
+  border-radius: 2px;
+}
+.level-2-container button.right {
+  // Stolen Color from Bootstrap
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+}
+.level-2-container button[disabled] {
+  opacity: .4;
+}
+.level-2-container button:hover {
+  cursor: pointer;
+  color: #000;
+}
+
+.tos-button-wrapper {
+  text-align: center;
+}

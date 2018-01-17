@@ -1,3 +1,11 @@
+/*
+  LevelSelect.jsx
+
+  The dropdown in the toolbar.
+  Allows user to go back to old levels, but not skip ahead.
+
+*/
+
 import React, { Component } from 'react';
 
 class LevelSelect extends Component {
@@ -7,12 +15,12 @@ class LevelSelect extends Component {
 
     level = parseInt(level);
 
-    for (var i = 1; i <= level; i++) {
+    for(let i = 1; i <= level; i++) {
       opts.push(
         <option
-          key={i}
-          value={level}>
-          LEVEL { level }
+          key={ i }
+          value={ i }>
+          LEVEL { i }
         </option>
       )
     }
@@ -32,4 +40,5 @@ class LevelSelect extends Component {
     );
   };
 }
+
 export default LevelSelect;

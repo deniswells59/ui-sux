@@ -15,7 +15,7 @@ class Instructions extends Component {
     // Hide intstructions
     if(newProps.playing && !newProps.complete) {
       this.setState({ show: false });
-      setTimeout(() => this.setState({ display: 'none' }), 700);
+      setTimeout(() => this.setState({ display: 'none' }), 600);
     }
 
     // If complete with level

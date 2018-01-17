@@ -1,3 +1,9 @@
+/*
+  Home page
+
+  Made it 
+*/
+
 import React, { Component } from 'react';
 
 import Transition from '../../Transitions/Transition';
