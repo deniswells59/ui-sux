@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Transition from './Transitions/Transition';
+
 class Loader extends Component {
   render() {
     return (
@@ -9,4 +11,12 @@ class Loader extends Component {
     );
   };
 }
-export default Loader;
+
+let transitionOpts = {
+  style: 'top',
+  start: '0px',
+  end: `-${window.innerHeight}px`,
+  duration: 1400
+}
+
+export default Transition(Loader, transitionOpts);

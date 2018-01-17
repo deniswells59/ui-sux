@@ -1,3 +1,10 @@
+/*
+  Level 2
+
+  TOS Level.
+
+  Pretty straight forward.
+*/
 import React, { Component } from 'react';
 
 import WindowBox from '../../WindowBox';

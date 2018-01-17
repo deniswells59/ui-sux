@@ -9,11 +9,27 @@
 import React, { Component } from 'react';
 
 class LevelSelect extends Component {
-  renderOptions() {
-    let { level } = this.props.session.data;
-    let opts = [];
+  constructor(props) {
+    super(props);
 
-    level = parseInt(level);
+    this.state = {
+      selected: 0
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    let selected = newProps.session && newProps.session.data
+                      ? newProps.session.data.level
+                      : 0;
+
+    if(this.state.selected !== selected) {
+      this.setState({ selected });
+    }
+  }
+
+  renderOptions() {
+    let level = this.state.selected;
+    let opts = [];
 
     for(let i = 1; i <= level; i++) {
       opts.push(
@@ -32,7 +48,7 @@ class LevelSelect extends Component {
     return (
       <div className={`level-select ${this.props.toolbarAnim}`}>
         <div>
-          <select defaultValue={this.props.session.data.level}>
+          <select value={ this.state.selected }>
             { this.props.session.data && this.renderOptions() }
           </select>
         </div>

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 import Game from './Game.jsx';
 import Loader from './Loader';
+import TransitionWrapper from './Transitions/TransitionWrapper';
 // We should probably check prop types
 // const propTypes = {
 //
@@ -26,15 +27,16 @@ class Root extends Component {
 
   renderGame() {
     let { loading } = this.props.session;
+
     return (
       <div>
-        {
-          loading  ?
-          <Loader full={ true } /> :
-          <Game
-            changeLevel={ this.changeLevel }
-            {...this.props} />
-        }
+        <TransitionWrapper>
+          { loading && <Loader full={ true } /> }
+        </TransitionWrapper>
+
+        { !loading && <Game
+                          changeLevel={ this.changeLevel }
+                          {...this.props} /> }
       </div>
     );
   }

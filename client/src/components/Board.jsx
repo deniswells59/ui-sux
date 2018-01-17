@@ -14,13 +14,13 @@ class Board extends Component {
     return (
       <div>
         <TransitionWrapper>
-          { level === '0' && <Level_0 {...this.props}/> }
+          { level === 0 && <Level_0 {...this.props}/> }
         </TransitionWrapper>
         <TransitionWrapper>
-          { level === '1' && <Level_1 {...this.props}/> }
+          { level === 1 && <Level_1 {...this.props}/> }
         </TransitionWrapper>
         <TransitionWrapper>
-          { level === '2' && <Level_2 {...this.props}/> }
+          { level === 2 && <Level_2 {...this.props}/> }
         </TransitionWrapper>
       </div>
     )

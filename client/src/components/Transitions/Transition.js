@@ -31,6 +31,7 @@ const Transition = (WrappedComponent, opts) => class Transition
 
   // Coming out
   componentWillLeave(cb) {
+    console.log('Leaving!');
     Animated.timing(this.state.animate, { toValue: 0, duration: opts.duration }).start();
     setTimeout(() => cb(), opts.duration );
   }

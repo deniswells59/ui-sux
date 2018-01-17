@@ -33,8 +33,7 @@ class WindowBox extends Component {
       Show container after animations,
       Level 1 needs a little extra time
     */
-    setTimeout(() => this.animate('containerAnim'),
-                this.props.level === '1' ? 1200 : 200);
+    setTimeout(() => this.animate('containerAnim'), 1200);
   }
 
   // Reusable animation function
@@ -54,7 +53,7 @@ class WindowBox extends Component {
     return (
       <div className='level-background'>
         <Draggable
-          defaultPosition={{ x: window.innerWidth / 2 - this.containerOffset, y: window.innerHeight / 2 - 300 }}
+          defaultPosition={{ x: window.innerWidth / 2 - this.containerOffset, y: window.innerHeight / 2 - window.innerHeight / 2 }}
           bounds='.level-background'
           handle='.window-bar'>
           <div

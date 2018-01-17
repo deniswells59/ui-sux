@@ -1,3 +1,16 @@
+/*
+  Level_1
+
+  The volume level.
+  Needs to be reworked.
+
+  REVIEW:
+
+  * Tracking the revolutions
+  * Buggy after window drag
+  
+*/
+
 import React, { Component } from 'react';
 
 import Crank from './Crank';

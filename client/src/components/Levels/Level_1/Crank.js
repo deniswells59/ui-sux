@@ -1,3 +1,10 @@
+/*
+  Crank.js
+
+  It's the crank, yo.
+  Holds all the rotating logic for Level 1.
+  
+*/
 import React, { Component } from 'react';
 
 class Crank extends Component {

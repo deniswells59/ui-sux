@@ -12,13 +12,11 @@ class CTA extends Component {
           <span className='highlight'> five</span> levels of UI that sucks. Prepare to experience the worst.
         </p>
 
-        <a href='#'>
-          <button
-            onClick={ () => this.props.changeLevel('1') }
-            className='btn play-btn'>
-            PLAY
-          </button>
-        </a>
+        <button
+          onClick={ () => this.props.changeLevel(1) }
+          className='btn play-btn'>
+          PLAY
+        </button>
       </div>
     );
   }

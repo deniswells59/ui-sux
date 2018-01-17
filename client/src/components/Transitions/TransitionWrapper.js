@@ -7,11 +7,6 @@ const firstChild = props => {
 };
 
 class TransitionWrapper extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-
   render() {
     return (
       <div className='transition-wrapper'>
