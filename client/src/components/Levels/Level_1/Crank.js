@@ -31,6 +31,9 @@ class Crank extends Component {
     this.setOrigin();
   }
 
+  componentWillUnmount() {
+    this.endRotateEvents();
+  }
 
 /* Sets origin of Rotation
 

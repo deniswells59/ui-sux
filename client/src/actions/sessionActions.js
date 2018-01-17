@@ -15,8 +15,8 @@ export function fetchSession(data) {
 
     // API Call
     setTimeout(() => {
-      dispatch(receiveSession({ id: '123', level: '0', tmpLvl: null })); // Got em
-    }, 300);
+      dispatch(receiveSession({ id: '123', level: '1' })); // Got em
+    }, 800);
   };
 }
 

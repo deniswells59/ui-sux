@@ -13,6 +13,7 @@ $textWhite: #fff;
 $titleFont: 'Montserrat', sans-serif;
 $textFont:  'Open Sans', sans-serif;
 
+@import './loader.scss';
 @import './level_0.scss';
 @import './level_1.scss';
 @import './level_2.scss';

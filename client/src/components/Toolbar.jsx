@@ -18,6 +18,7 @@ class Toolbar extends Component {
     }
 
     this.animationClass = 'show';
+    this.animTimeout = this.props.session.data.level === '1' ? 1600 : 200;
 
     this.animateToolbar = this.animateToolbar.bind(this);
   }
@@ -28,9 +29,8 @@ class Toolbar extends Component {
 
   animateToolbar() {
     // On Level 1, wait a little but longer for
-    // intro animation 
-    setTimeout(() => this.animate('toolbarAnim'),
-      this.props.session.data.level === '1' ? 1600 : 200);
+    // intro animation
+    setTimeout(() => this.animate('toolbarAnim'), this.animTimeout);
   }
 
   animate(stateProp) {

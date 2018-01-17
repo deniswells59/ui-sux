@@ -2,11 +2,11 @@
 import React, { Component } from 'react';
 
 import Game from './Game.jsx';
+import Loader from './Loader';
 // We should probably check prop types
 // const propTypes = {
 //
 // };
-// Style
 
 class Root extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class Root extends Component {
       <div>
         {
           loading  ?
-          'Loading...' :
+          <Loader full={ true } /> :
           <Game
             changeLevel={ this.changeLevel }
             {...this.props} />

@@ -26,7 +26,7 @@ class Instructions extends Component {
     }
   }
 
-  nextLevel(num) {
+  nextLevel() {
     this.props.hideWindowBox();
     this.props.updateLevelNum(parseInt(this.props.level) + 1);
   }
