@@ -1,33 +1,48 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class Title extends Component {
-  render() {
-    let transitions = {
-      'WebkitTransition': `all ${this.props.transition ? 0.6 : 0}s ease-out`,
-      'MozTransition':    `all ${this.props.transition ? 0.6 : 0}s ease-out`,
-      'OTransition':      `all ${this.props.transition ? 0.6 : 0}s ease-out`,
-      'transition':       `all ${this.props.transition ? 0.6 : 0}s ease-out`,
-    }
+const Title = (props) => {
+	const transitions = {
+		WebkitTransition: `all ${props.transition ? 0.6 : 0}s ease-out`,
+		MozTransition: `all ${props.transition ? 0.6 : 0}s ease-out`,
+		OTransition: `all ${props.transition ? 0.6 : 0}s ease-out`,
+		transition: `all ${props.transition ? 0.6 : 0}s ease-out`
+	};
 
-    return (
-      <div className='abs-center title'>
+	return (
+		<div className="abs-center title">
+			<h1>
+				<span style={transitions} className={props.titleAnimation1}>
+					UI
+				</span>
+				<span style={transitions} className={props.titleAnimation2}>
+					{' '}
+					/{' '}
+				</span>
+				<span style={transitions} className={`s ${props.spanAnimation}`}>
+					{props.addLetter}
+				</span>
+				<span
+					style={transitions}
+					className={`ux ${props.titleAnimation2} ${props.marginClass}`}
+				>
+					UX
+				</span>
+			</h1>
 
-        <h1>
-          <span style={transitions} className={ this.props.titleAnimation1 }>UI</span>
-          <span style={transitions} className={ this.props.titleAnimation2 }> / </span>
-          <span style={transitions} className={ `s ${this.props.spanAnimation}` }>{this.props.addLetter}</span>
-          <span style={transitions}
-            className={ `ux ${this.props.titleAnimation2} ${this.props.marginClass}` }>UX</span>
-        </h1>
+			<p className={`subtitle ${props.subtitleAnim}`}>a web browser game</p>
+		</div>
+	);
+};
 
-        <p
-          className={ `subtitle ${this.props.subtitleAnim}` }>
-          a web browser game
-        </p>
-
-      </div>
-    );
-  }
-}
+Title.propTypes = {
+	transition: PropTypes.bool.isRequired,
+	titleAnimation1: PropTypes.string.isRequired,
+	titleAnimation2: PropTypes.string.isRequired,
+	spanAnimation: PropTypes.string.isRequired,
+	addLetter: PropTypes.string.isRequired,
+	marginClass: PropTypes.string.isRequired,
+	subtitleAnim: PropTypes.string.isRequired
+};
 
 export default Title;

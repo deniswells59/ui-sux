@@ -1,22 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import Transition from './Transitions/Transition';
 
-class Loader extends Component {
-  render() {
-    return (
-      <div className={ this.props.full ? 'loader-container' : 'loader-wrapper'}>
-        <div className='loader'></div>
-      </div>
-    );
-  };
-}
+const Loader = (props) => (
+	<div className={props.full ? 'loader-container' : 'loader-wrapper'}>
+		<div className="loader" />
+	</div>
+);
 
-let transitionOpts = {
-  style: 'top',
-  start: '0px',
-  end: `-${window.innerHeight}px`,
-  duration: 1400
-}
+Loader.propTypes = {
+	full: PropTypes.bool.isRequired
+};
+
+const transitionOpts = {
+	style: 'top',
+	start: '0px',
+	end: `-${window.innerHeight}px`,
+	duration: 1400
+};
 
 export default Transition(Loader, transitionOpts);

@@ -8,18 +8,19 @@ import Root from '../components/Root';
 
 // Don't render much in containers
 // But pass the props!
-const RootContainer = props => <Root {...props} />;
+const RootContainer = (props) => <Root {...props} />;
 
 // Where store/state becomes our props
 const mapStateToProps = (state) => {
-  const { session } = state; // Pull it out
+	const { session } = state; // Pull it out
 
-  return { // Pass it along
-    session,
-  };
+	return {
+		// Pass it along
+		session
+	};
 };
 
 export default connect(mapStateToProps, {
-  fetchSession,
-  updateLevelNum
+	fetchSession,
+	updateLevelNum
 })(RootContainer);

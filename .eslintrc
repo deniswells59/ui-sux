@@ -1,0 +1,36 @@
+{
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module",
+      "ecmaFeatures": {
+          "jsx": true,
+      }
+    },
+    "plugins": [
+        "prettier",
+    ],
+    "extends": [
+        "airbnb",
+        "prettier"
+    ],
+    "rules": {
+        "radix": "off",
+        "indent": [0, "tab",],
+        "no-tabs":  "off",
+        "camelcase": "off",
+        "one-var": "off",
+        "no-return-assign": "off",
+        "no-underscore-dangle": "off",
+        "import/no-extraneous-dependencies": "off",
+        "jsx-a11y/no-static-element-interactions": "off",
+        "react/jsx-filename-extension": "off",
+        "react/jsx-indent": [2, "tab"],
+        "react/jsx-pascal-case": "off",
+        "react/jsx-indent-props": [2, "tab"]
+    }
+}
